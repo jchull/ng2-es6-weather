@@ -1,16 +1,28 @@
 import {Component} from 'angular2/core';
+import {QuickZipcodeForecastComponent} from './components/forecast/quick-zipcode-forecast';
 
-class AppComponent {
-  static get annotations() {
-    return [
-      new Component({
-        selector: "ng2-es6-weather",
-        template: require("./app.html")
-      })
-    ];
+export class AppComponent {
+
+  constructor () {
+     this.something = "test";
   }
 
-  constructor () {}
+  getSomething(){
+    return this.something;
+  }
 }
 
-export {AppComponent};
+AppComponent.annotations = [
+  new Component({
+    selector: "ng2-es6-weather",
+    template: require("./app.html"),
+    directives: [
+      QuickZipcodeForecastComponent
+    ]
+  })
+];
+
+// AppComponent.parameters = [
+//   [QuickZipcodeForecastComponent]
+// ];
+
