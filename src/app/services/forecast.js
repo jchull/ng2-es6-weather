@@ -1,4 +1,4 @@
-import {Http, HTTP_PROVIDERS} from "@angular/http";
+import {Http} from "@angular/http";
 
 export class ForecastService {
   constructor(http){

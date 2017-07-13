@@ -1,5 +1,4 @@
 import {Component} from "@angular/core";
-import {QuickZipcodeForecastComponent} from "./forecast/quick-zipcode-forecast";
 
 class AppComponent {
 

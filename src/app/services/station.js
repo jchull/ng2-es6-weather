@@ -1,9 +1,9 @@
-// import {Http, HTTP_PROVIDERS} from "angular2/http";
+import {Http} from "@angular/http";
 
 
 export class StationService {
-  constructor() {
-    // this.http = http;
+  constructor(http) {
+     this.http = http;
   }
 
   getNearestStationToZipcode(zipcode) {
@@ -12,4 +12,4 @@ export class StationService {
 
 }
 
-// StationService.parameters = [[Http]];
+StationService.parameters = [[Http]];

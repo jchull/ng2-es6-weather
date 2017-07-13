@@ -2,7 +2,6 @@ import {Component} from "@angular/core";
 
 import {ForecastService} from "../../services/forecast";
 import {StationService} from "../../services/station";
-import {ForecastComponent} from "./forecast";
 
 class QuickZipcodeForecastComponent {
 
@@ -31,9 +30,7 @@ class QuickZipcodeForecastComponent {
 QuickZipcodeForecastComponent.annotations = [
   new Component({
     selector: "quick-zipcode-forecast",
-    template: require("./quick-zipcode-forecast.html"),
-    providers: [ForecastService, StationService],
-    directives: [ForecastComponent]
+    template: require("./quick-zipcode-forecast.html")
   })
 ];
 
