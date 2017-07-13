@@ -1,3 +1,9 @@
-<div>
-Enter Zipcode to view forecast
-</div>
+<form>
+  <label>
+    Zipcode:
+    <input type="text"
+           [(ngModel)]="zipcode"/>
+  </label>
+  <button (click)="getWeather()">Submit</button>
+  <button (click)="clear()">Clear</button>
+</form>

@@ -7,9 +7,6 @@ export class AppComponent {
      this.something = "test";
   }
 
-  getSomething(){
-    return this.something;
-  }
 }
 
 AppComponent.annotations = [

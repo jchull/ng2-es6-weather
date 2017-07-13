@@ -13,7 +13,8 @@
     "angular2": "^2.0.0-beta.21",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.4.2",
-    "zone.js": "^0.8.13"
+    "zone.js": "^0.8.13",
+    "@angular/platform-browser": "latest"
   },
   "devDependencies": {
     "angular2-template-loader": "^0.6.2",
