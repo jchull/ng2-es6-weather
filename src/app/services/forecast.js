@@ -1,4 +1,4 @@
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
+import {Http, HTTP_PROVIDERS} from "@angular/http";
 
 export class ForecastService {
   constructor(http){
@@ -10,8 +10,6 @@ export class ForecastService {
     return ["id-"+stationId];
   };
 
-  static get providers() {
-    return [[Http]];
-  }
-
 }
+
+ForecastService.parameters = [[Http]];

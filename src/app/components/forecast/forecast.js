@@ -1,6 +1,6 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 
-export class ForecastComponent {
+class ForecastComponent {
 
   constructor() {
 
@@ -18,8 +18,9 @@ ForecastComponent.annotations = [
   new Component({
     selector: "forecast",
     template: require("./forecast.html"),
-    inputs: ["forecast"]
+    inputs: ["forecastData"]
   })
 ];
 
 
+export {ForecastComponent};

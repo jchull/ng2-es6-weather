@@ -1,10 +1,9 @@
-import 'zone.js';
-import 'reflect-metadata';
-import {bootstrap} from "angular2/platform/browser";
-import {AppComponent} from "./app/app";
+import "core-js/shim";
+import "reflect-metadata";
+import "zone.js";
 
-let boot = document.addEventListener('DOMContentLoaded', () => {
-  bootstrap(AppComponent);
-});
+import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
+import {AppModule} from "./app/app.module";
 
-module.exports = boot;
+
+platformBrowserDynamic().bootstrapModule(AppModule);

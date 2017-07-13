@@ -2,9 +2,10 @@
   <label>
     Zipcode:
     <input type="text"
+           name="zipcode"
            [(ngModel)]="zipcode"/>
   </label>
   <button (click)="getWeather()">Submit</button>
   <button (click)="clear()">Clear</button>
-  <forecast [forecast]="currentForecast"></forecast>
+  <forecast [forecastData]="currentForecast"></forecast>
 </form>

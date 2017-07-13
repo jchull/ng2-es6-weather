@@ -1,10 +1,10 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 
 import {ForecastService} from "../../services/forecast";
 import {StationService} from "../../services/station";
 import {ForecastComponent} from "./forecast";
 
-export class QuickZipcodeForecastComponent {
+class QuickZipcodeForecastComponent {
 
   constructor(forecastService, stationService) {
     this.zipcode = undefined;
@@ -40,4 +40,6 @@ QuickZipcodeForecastComponent.annotations = [
 QuickZipcodeForecastComponent.parameters = [
   [ForecastService], [StationService]
 ];
+
+export {QuickZipcodeForecastComponent};
 

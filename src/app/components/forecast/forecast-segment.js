@@ -1,6 +1,6 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 
-export class ForecastSegmentComponent {
+class ForecastSegmentComponent {
 
   constructor() {
 
@@ -21,3 +21,4 @@ ForecastSegmentComponent.annotations = [
 ];
 
 
+export {ForecastSegmentComponent};
