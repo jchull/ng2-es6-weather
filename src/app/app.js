@@ -1,10 +1,9 @@
-import {Component} from 'angular2/core';
-import {QuickZipcodeForecastComponent} from './components/forecast/quick-zipcode-forecast';
+import {Component} from "angular2/core";
+import {QuickZipcodeForecastComponent} from "./components/forecast/quick-zipcode-forecast";
 
 export class AppComponent {
 
-  constructor () {
-     this.something = "test";
+  constructor() {
   }
 
 }
@@ -19,7 +18,4 @@ AppComponent.annotations = [
   })
 ];
 
-// AppComponent.parameters = [
-//   [QuickZipcodeForecastComponent]
-// ];
 

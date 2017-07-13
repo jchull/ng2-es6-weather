@@ -2,6 +2,7 @@ import {Component} from "angular2/core";
 
 import {ForecastService} from "../../services/forecast";
 import {StationService} from "../../services/station";
+import {ForecastComponent} from "./forecast";
 
 export class QuickZipcodeForecastComponent {
 
@@ -13,6 +14,7 @@ export class QuickZipcodeForecastComponent {
 
   clear(){
     this.zipcode = undefined;
+    this.currentForecast = undefined;
   };
 
   getWeather(){
@@ -20,8 +22,8 @@ export class QuickZipcodeForecastComponent {
     let stationId = this.stationService.getNearestStationToZipcode(this.zipcode);
     console.log("nearest station ID: " + stationId);
 
-    let forecast = this.forecastService.getForecastByStation(stationId);
-    console.log("got forecast: " + forecast);
+    this.currentForecast = this.forecastService.getForecastByStation(stationId);
+    console.log("got forecast: " + this.currentForecast);
   }
 
 }
@@ -30,7 +32,8 @@ QuickZipcodeForecastComponent.annotations = [
   new Component({
     selector: "quick-zipcode-forecast",
     template: require("./quick-zipcode-forecast.html"),
-    providers: [ForecastService, StationService]
+    providers: [ForecastService, StationService],
+    directives: [ForecastComponent]
   })
 ];
 
