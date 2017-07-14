@@ -2,3 +2,4 @@
 /node_modules/
 /.idea/
 /ng2-es6-weather.iml
+/.env.*
