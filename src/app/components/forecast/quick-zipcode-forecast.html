@@ -1,11 +1,14 @@
-<form>
-  <label>
-    Zipcode:
-    <input type="text"
-           name="zipcode"
-           [(ngModel)]="zipcode"/>
-  </label>
-  <button (click)="getWeather()">Submit</button>
+<form #zipForm="ngForm"
+      style="margin:20px;">
+  <label for="zipcode">Zipcode</label>
+  <input type="text"
+         name="zipcode"
+         id="zipcode"
+         minlength="5" maxlength="5"
+         required
+         [(ngModel)]="zipcode"/>
+  <button (click)="findStation()"
+          [disabled]="!zipForm.form.valid">Submit</button>
   <button (click)="clear()">Clear</button>
-  <forecast [forecastData]="currentForecast"></forecast>
+  <forecast [station]="station"></forecast>
 </form>

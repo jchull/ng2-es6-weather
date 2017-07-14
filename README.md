@@ -5,3 +5,5 @@ Simple weather app to match my react-weather sample
 `npm install`
 
 `npm start`
+
+![Screenshot](ng2-weather.png "Screenshot")

@@ -3,3 +3,4 @@
 /.idea/
 /ng2-es6-weather.iml
 /.env.*
+/dist/

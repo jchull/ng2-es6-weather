@@ -13,14 +13,16 @@ import {ForecastService} from "./services/forecast";
 import {StationService} from "./services/station";
 
 
-class AppModule {
-}
+class AppModule {}
 
 AppModule.annotations = [
   new NgModule({
     imports: [BrowserModule, FormsModule, HttpModule],
     declarations: [AppComponent, QuickZipcodeForecastComponent, ForecastComponent, ForecastSegmentComponent],
-    providers: [ForecastService, StationService],
+    providers: [
+      ForecastService,
+      StationService
+    ],
     bootstrap: [AppComponent]
   })
 ];

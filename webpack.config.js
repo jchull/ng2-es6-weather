@@ -1,7 +1,8 @@
-var path = require('path'),
+let path = require('path'),
     webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin');
+    DotenvPlugin = require('webpack-dotenv-plugin'),
+    FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'),
@@ -10,45 +11,37 @@ module.exports = {
     filename: '[name].[chunkhash:8].js'
   },
   devtool: 'cheap-module-source-map',
+  profile: false,
+  stats: false,
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
+        use: [{
           loader: 'babel-loader',
           options: {
             presets: ['es2015']
           }
-        }
+        },
+          {loader: "angular2-template-loader"}
+        ]
       },
       {
-        test: /\.html$/,
-        loader: 'html-loader'
-      },
-      // {
-      //   test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-      //   loader: 'file-loader?name=assets/[name].[hash].[ext]'
-      // },
-      // {
-      //   test: /\.css$/,
-      //   loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap'})
-      // },
-      // {
-      //   test: /\.css$/,
-      //   loader: 'raw-loader'
-      // }
+        test: /\.(html|css)$/,
+        loader: 'raw-loader',
+        exclude: /\.async\.(html|css)$/
+      }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Angular 2 ES6 Weather',
-      templateContent: '<ng2-es6-weather></ng2-es6-weather>'
+      template: 'src/index.html'
     }),
-    new webpack.LoaderOptionsPlugin({
-      htmlLoader: {
-        minimize: false // workaround for ng2
-      }
-    })
+    new DotenvPlugin({
+      sample: './.env',
+      path: './.env.local'
+    }),
+    new FaviconsWebpackPlugin('./src/favicon-194x194.png')
   ]
 };

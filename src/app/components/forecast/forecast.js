@@ -1,25 +1,31 @@
 import {Component} from "@angular/core";
 
+import {ForecastService} from "../../services/forecast";
+
 class ForecastComponent {
 
-  constructor() {
-
+  constructor(forecastService) {
+    this.forecastService = forecastService;
   }
 
   ngOnChanges(changes){
-    console.log("ForecastComponent changes:" + JSON.stringify(changes));
+    if(changes.station.currentValue){
+      this.forecastService.getForecastByStation(changes.station.currentValue)
+          .subscribe(forecast => this.currentForecast = forecast.txt_forecast.forecastday);
+    }
   }
-
-
-
 }
 
 ForecastComponent.annotations = [
   new Component({
     selector: "forecast",
     template: require("./forecast.html"),
-    inputs: ["forecastData"]
+    inputs: ["station"]
   })
+];
+
+ForecastComponent.parameters = [
+  [ForecastService]
 ];
 
 

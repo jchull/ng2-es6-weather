@@ -1,28 +1,22 @@
 import {Component} from "@angular/core";
 
-import {ForecastService} from "../../services/forecast";
 import {StationService} from "../../services/station";
 
 class QuickZipcodeForecastComponent {
 
-  constructor(forecastService, stationService) {
+  constructor(stationService) {
     this.zipcode = undefined;
-    this.forecastService = forecastService;
     this.stationService = stationService;
   }
 
   clear(){
     this.zipcode = undefined;
-    this.currentForecast = undefined;
+    this.station = undefined;
   };
 
-  getWeather(){
-    console.log("searching for nearest station by zipcode: " + this.zipcode);
-    let stationId = this.stationService.getNearestStationToZipcode(this.zipcode);
-    console.log("nearest station ID: " + stationId);
-
-    this.currentForecast = this.forecastService.getForecastByStation(stationId);
-    console.log("got forecast: " + this.currentForecast);
+  findStation(){
+    this.stationService.getNearestStationToZipcode(this.zipcode)
+        .subscribe(location => this.station = location.nearby_weather_stations.pws.station[0]);
   }
 
 }
@@ -35,7 +29,7 @@ QuickZipcodeForecastComponent.annotations = [
 ];
 
 QuickZipcodeForecastComponent.parameters = [
-  [ForecastService], [StationService]
+  [StationService]
 ];
 
 export {QuickZipcodeForecastComponent};
