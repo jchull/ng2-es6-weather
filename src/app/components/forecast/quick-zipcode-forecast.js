@@ -5,7 +5,6 @@ import {StationService} from "../../services/station";
 class QuickZipcodeForecastComponent {
 
   constructor(stationService) {
-    this.zipcode = undefined;
     this.stationService = stationService;
   }
 
@@ -20,6 +19,7 @@ class QuickZipcodeForecastComponent {
   }
 
 }
+
 
 QuickZipcodeForecastComponent.annotations = [
   new Component({
