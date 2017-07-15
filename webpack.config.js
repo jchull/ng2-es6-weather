@@ -2,7 +2,9 @@ let path = require('path'),
     webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     DotenvPlugin = require('webpack-dotenv-plugin'),
-    FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+    FaviconsWebpackPlugin = require('favicons-webpack-plugin'),
+    CleanWebpackPlugin = require('clean-webpack-plugin');
+
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'),
@@ -35,6 +37,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['dist/*']),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
@@ -42,6 +45,19 @@ module.exports = {
       sample: './.env',
       path: './.env.local'
     }),
-    new FaviconsWebpackPlugin('./src/favicon-194x194.png')
+    new FaviconsWebpackPlugin('./src/favicon-194x194.png'),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['vendor'],
+      minChunks: function (module) {
+        // this assumes your vendor imports exist in the node_modules directory
+        return module.context &&
+            (module.context.indexOf('node_modules') !== -1);
+      }
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest'
+    })
   ]
 };
