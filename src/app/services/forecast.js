@@ -1,6 +1,6 @@
 import {Http} from "@angular/http";
 
-const BASE_URL = "http://api.wunderground.com/api/" + process.env.WEATHER_API_KEY + "/forecast/q/";
+const BASE_URL = `http://api.wunderground.com/api/${process.env.WEATHER_API_KEY}/forecast/q/`;
 
 export class ForecastService {
   constructor(http){
