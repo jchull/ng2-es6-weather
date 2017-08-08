@@ -8,12 +8,13 @@ class QuickZipcodeForecastComponent {
     this.stationService = stationService;
   }
 
-  clear(){
+  clear() {
     this.zipcode = undefined;
     this.station = undefined;
   };
 
-  findStation(){
+  findStation() {
+    this.station = undefined;
     this.stationService.getNearestStationToZipcode(this.zipcode)
         .subscribe(location => this.station = location.nearby_weather_stations.pws.station[0]);
   }
@@ -24,7 +25,24 @@ class QuickZipcodeForecastComponent {
 QuickZipcodeForecastComponent.annotations = [
   new Component({
     selector: "quick-zipcode-forecast",
-    template: require("./quick-zipcode-forecast.html")
+    template: `
+      <form #zipForm="ngForm"
+            style="margin:20px;">
+        <label for="zipcode">Zipcode</label>
+        <input type="text"
+               name="zipcode"
+               id="zipcode"
+               minlength="5"
+               maxlength="5"
+               required
+               [(ngModel)]="zipcode"/>
+        <button (click)="findStation()"
+                [disabled]="!zipForm.form.valid">Submit
+        </button>
+        <button (click)="clear()">Clear</button>
+        <forecast [station]="station"></forecast>
+      </form>
+    `
   })
 ];
 
