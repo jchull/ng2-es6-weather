@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 
-class AppComponent {
+export default class AppComponent {
 }
 
 AppComponent.annotations = [
@@ -20,7 +20,4 @@ AppComponent.annotations = [
     styles: [require("./app.css")]
   })
 ];
-
-export {AppComponent};
-
 

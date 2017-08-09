@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 
-import {ForecastService} from "../../services/forecast";
+import ForecastService from "../../services/forecast";
 
-class ForecastComponent {
+export default class ForecastComponent {
 
   constructor(forecastService) {
     this.forecastService = forecastService;
@@ -38,4 +38,3 @@ ForecastComponent.parameters = [
 ];
 
 
-export {ForecastComponent};

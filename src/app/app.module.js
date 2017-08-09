@@ -4,16 +4,16 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 
 
-import {AppComponent} from "./components/app";
-import {QuickZipcodeForecastComponent} from "./components/forecast/quick-zipcode-forecast";
-import {ForecastComponent} from "./components/forecast/forecast";
-import {ForecastSegmentComponent} from "./components/forecast/forecast-segment";
+import AppComponent from "./components/app";
+import QuickZipcodeForecastComponent from "./components/forecast/quick-zipcode-forecast";
+import ForecastComponent from "./components/forecast/forecast";
+import ForecastSegmentComponent from "./components/forecast/forecast-segment";
 
-import {ForecastService} from "./services/forecast";
-import {StationService} from "./services/station";
+import ForecastService from "./services/forecast";
+import StationService from "./services/station";
 
 
-class AppModule {}
+export default class AppModule {}
 
 AppModule.annotations = [
   new NgModule({
@@ -27,4 +27,3 @@ AppModule.annotations = [
   })
 ];
 
-export {AppModule};

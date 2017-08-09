@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 
-class ForecastSegmentComponent {
+export default class ForecastSegmentComponent {
 }
 
 ForecastSegmentComponent.annotations = [
@@ -15,7 +15,6 @@ ForecastSegmentComponent.annotations = [
           <img src={{forecast.icon_url}} alt={{forecast.conditions}}/>
         </div>
         <div class="day-summary">{{forecast.fcttext}}</div>
-
       </div>
     `,
     inputs: ["forecast"],
@@ -24,4 +23,3 @@ ForecastSegmentComponent.annotations = [
 ];
 
 
-export {ForecastSegmentComponent};

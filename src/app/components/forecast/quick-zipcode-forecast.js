@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 
-import {StationService} from "../../services/station";
+import StationService from "../../services/station";
 
-class QuickZipcodeForecastComponent {
+export default class QuickZipcodeForecastComponent {
 
   constructor(stationService) {
     this.stationService = stationService;
@@ -50,5 +50,4 @@ QuickZipcodeForecastComponent.parameters = [
   [StationService]
 ];
 
-export {QuickZipcodeForecastComponent};
 
