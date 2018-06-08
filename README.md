@@ -1,5 +1,10 @@
 # ng2-es6-weather
-Simple weather app to match my react-weather sample
+Simple weather app built with Angular2 using ES6, no Typescript with similar examples
+also available in react and vue
+
+https://github.com/jchull/react-weather
+
+https://github.com/jchull/vue-weather
 
 # Getting Started
 First, install the required node packages with npm: 
